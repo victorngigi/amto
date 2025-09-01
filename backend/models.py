@@ -1,6 +1,9 @@
 from extensions import db, bcrypt
+from datetime import datetime
 
 class User(db.Model):
+    __tablename__ = "users"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -22,4 +25,71 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
+        }
+
+
+class Member(db.Model):
+    __tablename__ = "members"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    phone = db.Column(db.String(20), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=True)
+    join_date = db.Column(db.DateTime, default=datetime.utcnow)
+    status = db.Column(db.String(20), default="active")
+
+    # relationships
+    vehicles = db.relationship("Vehicle", backref="member", lazy=True)
+    payments = db.relationship("Payment", backref="member", lazy=True)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "phone": self.phone,
+            "email": self.email,
+            "join_date": self.join_date.isoformat(),
+            "status": self.status,
+        }
+
+
+class Vehicle(db.Model):
+    __tablename__ = "vehicles"
+
+    id = db.Column(db.Integer, primary_key=True)
+    plate_number = db.Column(db.String(20), unique=True, nullable=False)
+    model = db.Column(db.String(100), nullable=True)
+    route = db.Column(db.String(50), nullable=True)
+    capacity = db.Column(db.Integer, nullable=True)
+
+    member_id = db.Column(db.Integer, db.ForeignKey("members.id"), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "plate_number": self.plate_number,
+            "model": self.model,
+            "route": self.route,
+            "capacity": self.capacity,
+            "member_id": self.member_id,
+        }
+
+
+class Payment(db.Model):
+    __tablename__ = "payments"
+
+    id = db.Column(db.Integer, primary_key=True)
+    amount = db.Column(db.Numeric(10, 2), nullable=False)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    purpose = db.Column(db.String(200), nullable=True)
+
+    member_id = db.Column(db.Integer, db.ForeignKey("members.id"), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "amount": float(self.amount),
+            "date": self.date.isoformat(),
+            "purpose": self.purpose,
+            "member_id": self.member_id,
         }
