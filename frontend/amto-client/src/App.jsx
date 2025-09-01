@@ -1,16 +1,5 @@
-import { useState } from 'react'
-import './App.css'
-import { Link, Route, Routes } from 'react-router-dom'
-import Dashboard from './pages/Dashboard'
+import AppRoutes from "./routes/AppRoutes";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-    </Routes>
-   );
+export default function App() {
+  return <AppRoutes />;
 }
-
-export default App
