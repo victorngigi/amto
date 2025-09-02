@@ -5,10 +5,22 @@ import Dashboard from "../pages/Dashboard";
 import AuthLayout from "../layouts/AuthLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "../utils/ProtectedRoute";
+import LandingPage from "../pages/LandingPage";
+import LandingPageLayout from "../layouts/LandingPageLayout";
 
 export default function AppRoutes() {
   return (
     <Routes>
+      {/* Landing Page */}
+      <Route
+        path="/"
+        element={
+          <LandingPageLayout>
+            <LandingPage />
+          </LandingPageLayout>
+        }
+      />
+
       {/* Auth Routes */}
       <Route
         path="/login"
@@ -43,9 +55,9 @@ export default function AppRoutes() {
       <Route
         path="*"
         element={
-          <AuthLayout>
-            <Login />
-          </AuthLayout>
+          <LandingPageLayout>
+            <LandingPage />
+          </LandingPageLayout>
         }
       />
     </Routes>

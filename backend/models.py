@@ -42,6 +42,11 @@ class Member(db.Model):
     vehicles = db.relationship("Vehicle", backref="member", lazy=True)
     payments = db.relationship("Payment", backref="member", lazy=True)
 
+    def __init__(self, name, phone, email=None):
+        self.name = name
+        self.phone = phone
+        self.email = email
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -64,6 +69,13 @@ class Vehicle(db.Model):
 
     member_id = db.Column(db.Integer, db.ForeignKey("members.id"), nullable=False)
 
+    def __init__(self, plate_number, model, route, capacity, member_id):
+        self.plate_number = plate_number
+        self.model = model
+        self.route = route
+        self.capacity = capacity
+        self.member_id = member_id
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -84,6 +96,12 @@ class Payment(db.Model):
     purpose = db.Column(db.String(200), nullable=True)
 
     member_id = db.Column(db.Integer, db.ForeignKey("members.id"), nullable=False)
+
+    def __init__(self, amount, date, purpose, member_id):
+        self.amount = amount
+        self.date = date
+        self.purpose = purpose
+        self.member_id = member_id
 
     def to_dict(self):
         return {
