@@ -4,17 +4,22 @@ from flask_migrate import Migrate
 from extensions import db, bcrypt, jwt
 from config import Config
 from resources.auth import Register, Login, Profile
-
+from dotenv import load_dotenv
+import os
 
 def create_app():
+    load_dotenv()  # load .env variables first
     app = Flask(__name__)
     app.config.from_object(Config)
+
+    # Debug: show which DB is being used
+    print("🔗 Using database:", app.config["SQLALCHEMY_DATABASE_URI"])
 
     # init extensions
     db.init_app(app)
     bcrypt.init_app(app)
     jwt.init_app(app)
-    Migrate(app, db)  # enable migrations
+    Migrate(app, db)
 
     # register api resources
     api = Api(app)

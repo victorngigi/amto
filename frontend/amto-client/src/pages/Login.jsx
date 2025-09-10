@@ -22,12 +22,11 @@ export default function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-lg rounded-lg p-6 w-80"
+        className="flex flex-col justify-center h-full"
       >
-        <h2 className="text-xl font-semibold mb-4">Login</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
 
         <input
           type="email"
@@ -35,7 +34,7 @@ export default function Login() {
           placeholder="Email"
           value={form.email}
           onChange={handleChange}
-          className="border rounded w-full p-2 mb-3"
+          className="border rounded w-full p-3 mb-4"
         />
 
         <input
@@ -44,16 +43,15 @@ export default function Login() {
           placeholder="Password"
           value={form.password}
           onChange={handleChange}
-          className="border rounded w-full p-2 mb-4"
+          className="border rounded w-full p-3 mb-4"
         />
 
         <button
           type="submit"
-          className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white w-full py-3 rounded hover:bg-blue-700"
         >
           Login
         </button>
       </form>
-    </div>
   );
 }

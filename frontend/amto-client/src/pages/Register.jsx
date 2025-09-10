@@ -10,34 +10,32 @@ export default function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleRegister}
-        className="bg-white shadow-lg rounded-lg p-6 w-80"
+        className="flex flex-col justify-center h-full"
       >
-        <h2 className="text-xl font-semibold mb-4">Register</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Register</h2>
         <input
           type="text"
           placeholder="Name"
-          className="border rounded w-full p-2 mb-3"
+          className="border rounded w-full p-3 mb-4"
         />
         <input
           type="email"
           placeholder="Email"
-          className="border rounded w-full p-2 mb-3"
+          className="border rounded w-full p-3 mb-4"
         />
         <input
           type="password"
           placeholder="Password"
-          className="border rounded w-full p-2 mb-4"
+          className="border rounded w-full p-3 mb-4"
         />
         <button
           type="submit"
-          className="bg-green-600 text-white w-full py-2 rounded hover:bg-green-700"
+          className="bg-green-600 text-white w-full py-3 rounded hover:bg-green-700"
         >
           Register
         </button>
       </form>
-    </div>
   );
 }
