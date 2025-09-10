@@ -79,7 +79,7 @@ export default function LandingPage() {
               <p>
                 Any matatu owner, or person connected to the sector, can join AMTO. 
                 Annual fee: <span className="font-semibold">Ksh 1,000</span>.  
-                Vehicle ownership is not required, but sacco/company affiliation must be declared.
+                Sacco/company affiliation must be declared.
               </p>
             </div>
             <div className="p-8 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
