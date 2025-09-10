@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Env files (secrets!)
+.env
+*.env
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# Logs & cache
+*.log
+*.pot
+*.mo
+.cache/
+coverage/
+htmlcov/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Pytest / testing
+.pytest_cache/
+.tox/
+.mypy_cache/
+.pyre/
