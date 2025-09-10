@@ -29,6 +29,14 @@ export default function LandingPage() {
             <Link to="/register">Join Today</Link>
           </Button>
         </div>
+        {/* Image Placeholder */}
+        <div className="flex justify-center">
+          <img
+            src="../assets/matatu-fleet.jpg"
+            alt="Matatu fleet"
+            className="rounded-xl shadow-md w-full h-auto object-cover"
+          />
+        </div>
       </section>
 
       <Separator className="my-12" />
@@ -121,9 +129,8 @@ export default function LandingPage() {
               <CardContent>
                 <p>
                   Any matatu owner, or person connected to the sector, can join
-                  AMTO. Annual fee:{" "}
-                  <Badge className="mx-1">Ksh 1,000</Badge>. Sacco/company
-                  affiliation must be declared.
+                  AMTO. Annual fee: <Badge className="mx-1">Ksh 1,000</Badge>.
+                  Sacco/company affiliation must be declared.
                 </p>
               </CardContent>
             </Card>
@@ -135,9 +142,9 @@ export default function LandingPage() {
               <CardContent>
                 <p>
                   Transport companies and saccos may register as organisational
-                  members. Annual fee:{" "}
-                  <Badge className="mx-1">Ksh 5,000</Badge>. Vehicle count is
-                  tracked for records but does not affect the fee.
+                  members. Annual fee: <Badge className="mx-1">Ksh 5,000</Badge>
+                  . Vehicle count is tracked for records but does not affect the
+                  fee.
                 </p>
               </CardContent>
             </Card>
