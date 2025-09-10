@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 
-export default function Navbar() {
+export default function Navbar({ onMenuClick }) {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -11,15 +12,30 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-primary text-primary-foreground shadow-lg">
+    <nav className="bg-primary text-primary-foreground shadow-lg sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center py-4">
-        <Link to="/" className="text-2xl font-bold">
-          AMTO
-        </Link>
-        <div className="space-x-4">
+        {/* Left side: Brand + Mobile Menu */}
+        <div className="flex items-center gap-3">
+          {/* Mobile menu toggle */}
+          {token && (
+            <button
+              onClick={onMenuClick}
+              className="md:hidden p-1 rounded hover:bg-primary/80 focus:outline-none"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+          )}
+
+          <Link to="/" className="text-2xl font-bold">
+            AMTO
+          </Link>
+        </div>
+
+        {/* Right side: Auth buttons */}
+        <div className="space-x-2">
           {token ? (
             <>
-              <Button variant="secondary">
+              <Button variant="secondary" asChild>
                 <Link to="/dashboard">Dashboard</Link>
               </Button>
               <Button variant="destructive" onClick={handleLogout}>
@@ -28,10 +44,10 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Button variant="ghost">
+              <Button variant="ghost" asChild>
                 <Link to="/login">Login</Link>
               </Button>
-              <Button variant="secondary">
+              <Button variant="secondary" asChild>
                 <Link to="/register">Register</Link>
               </Button>
             </>
