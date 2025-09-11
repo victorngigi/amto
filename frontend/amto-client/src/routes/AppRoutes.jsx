@@ -7,6 +7,7 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "../utils/ProtectedRoute";
 import LandingPage from "../pages/LandingPage";
 import LandingPageLayout from "../layouts/LandingPageLayout";
+import Events from "../pages/EventsPage";
 
 export default function AppRoutes() {
   return (
@@ -46,6 +47,16 @@ export default function AppRoutes() {
           <ProtectedRoute>
             <DashboardLayout>
               <Dashboard />
+            </DashboardLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/events"
+        element={
+          <ProtectedRoute>
+            <DashboardLayout>
+              <Events />
             </DashboardLayout>
           </ProtectedRoute>
         }

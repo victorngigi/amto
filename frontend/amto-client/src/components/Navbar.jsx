@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 
 export default function Navbar({ onMenuClick }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const token = localStorage.getItem("token");
 
   const handleLogout = () => {
@@ -11,13 +12,15 @@ export default function Navbar({ onMenuClick }) {
     navigate("/login");
   };
 
+  const isLandingPage = location.pathname === "/";
+
   return (
     <nav className="bg-primary text-primary-foreground shadow-lg sticky top-0 z-30">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center py-4">
         {/* Left side: Brand + Mobile Menu */}
         <div className="flex items-center gap-3">
-          {/* Mobile menu toggle */}
-          {token && (
+          {/* Mobile menu toggle (hidden on landing page) */}
+          {token && !isLandingPage && (
             <button
               onClick={onMenuClick}
               className="md:hidden p-1 rounded hover:bg-primary/80 focus:outline-none"
@@ -34,14 +37,16 @@ export default function Navbar({ onMenuClick }) {
         {/* Right side: Auth buttons */}
         <div className="space-x-2">
           {token ? (
-            <>
-              <Button variant="secondary" asChild>
-                <Link to="/dashboard">Dashboard</Link>
-              </Button>
-              <Button variant="destructive" onClick={handleLogout}>
-                Logout
-              </Button>
-            </>
+            isLandingPage ? (
+              <>
+                <Button variant="secondary" asChild>
+                  <Link to="/dashboard">Dashboard</Link>
+                </Button>
+                <Button variant="destructive" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </>
+            ) : null
           ) : (
             <>
               <Button variant="ghost" asChild>
