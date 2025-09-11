@@ -35,7 +35,7 @@ export default function LandingPage() {
           {/* Image Placeholder */}
           <div className="flex justify-center">
             <img
-              src="../public/team.svg"
+              src="team.svg"
               alt="Matatu fleet"
               className="rounded-xl shadow-md w-full h-auto object-cover"
             />
@@ -66,7 +66,7 @@ export default function LandingPage() {
           {/* Image Placeholder */}
           <div className="flex justify-center">
             <img
-              src="../public/podium.svg"
+              src="podium.svg"
               alt="AMTO members meeting"
               className="rounded-xl shadow-md w-full h-auto object-cover"
             />
@@ -85,7 +85,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="text-center">
               <img
-                src="../public/advocate.svg"
+                src="advocate.svg"
                 alt="Advocacy"
                 className="w-full h-40 object-contain rounded-t-lg"
               />
@@ -102,7 +102,7 @@ export default function LandingPage() {
 
             <Card className="text-center">
               <img
-                src="../public/network.svg"
+                src="network.svg"
                 alt="Network"
                 className="w-full h-40 object-contain rounded-t-lg"
               />
@@ -119,7 +119,7 @@ export default function LandingPage() {
 
             <Card className="text-center">
               <img
-                src="../public/member.svg"
+                src="member.svg"
                 alt="Membership structure"
                 className="w-full h-40 object-contain rounded-t-lg"
               />
@@ -153,7 +153,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="text-center">
               <img
-                src="../public/individual.svg"
+                src="individual.svg"
                 alt="Individual member"
                 className="w-full h-40 object-contain rounded-t-lg"
               />
@@ -172,7 +172,7 @@ export default function LandingPage() {
 
             <Card className="text-center">
               <img
-                src="../public/company.svg"
+                src="company.svg"
                 alt="Sacco membership"
                 className="w-full h-40 object-contain rounded-t-lg"
               />
