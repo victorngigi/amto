@@ -15,19 +15,31 @@ export default function LandingPage() {
     <>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-100 to-blue-200 py-20">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Stronger United: The Voice of Matatu Owners
-          </h2>
-          <p className="text-lg md:text-xl mb-6 max-w-3xl mx-auto">
-            Since 2018, AMTO has united matatu owners across all 47 counties of
-            Kenya, championing their interests at county and national level, and
-            standing strong as a member of the Federation of Public Transport
-            Sector (FPTS).
-          </p>
-          <Button asChild>
-            <Link to="/register">Join Today</Link>
-          </Button>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+          {/* Text */}
+          <div className="text-center md:text-left">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Stronger United: The Voice of Matatu Owners
+            </h2>
+            <p className="text-lg md:text-xl mb-6 max-w-3xl">
+              Since 2018, AMTO has united matatu owners across all 47 counties of
+              Kenya, championing their interests at county and national level, and
+              standing strong as a member of the Federation of Public Transport
+              Sector (FPTS).
+            </p>
+            <Button asChild>
+              <Link to="/register">Join Today</Link>
+            </Button>
+          </div>
+
+          {/* Image Placeholder */}
+          <div className="flex justify-center">
+            <img
+              src="../public/team.svg"
+              alt="Matatu fleet"
+              className="rounded-xl shadow-md w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -35,20 +47,30 @@ export default function LandingPage() {
 
       {/* About Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
-          <p className="text-lg text-gray-700 mb-4">
-            AMTO exists to give matatu owners a united voice. We engage with
-            government, law enforcement, insurers, and the public on issues that
-            uniquely affect our members and the industry. Our mission is to
-            strengthen owners’ position in Kenya’s public transport system and
-            secure fairness, sustainability, and recognition for the sector.
-          </p>
-          <p className="text-lg text-gray-700">
-            Membership spans both individuals and transport companies. Every
-            member must declare their sacco or company, even if it is not
-            affiliated with AMTO.
-          </p>
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+          {/* Text */}
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
+            <p className="text-lg text-gray-700 mb-4">
+              AMTO exists to give matatu owners a united voice. We engage with
+              government, law enforcement, insurers, and the public on issues that
+              uniquely affect our members and the industry.
+            </p>
+            <p className="text-lg text-gray-700">
+              Membership spans both individuals and transport companies. Every
+              member must declare their sacco or company, even if it is not
+              affiliated with AMTO.
+            </p>
+          </div>
+
+          {/* Image Placeholder */}
+          <div className="flex justify-center">
+            <img
+              src="../public/podium.svg"
+              alt="AMTO members meeting"
+              className="rounded-xl shadow-md w-full h-auto object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -62,6 +84,11 @@ export default function LandingPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="text-center">
+              <img
+                src="../public/advocate.svg"
+                alt="Advocacy"
+                className="w-full h-40 object-contain rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>Advocacy & Representation</CardTitle>
               </CardHeader>
@@ -74,6 +101,11 @@ export default function LandingPage() {
             </Card>
 
             <Card className="text-center">
+              <img
+                src="../public/network.svg"
+                alt="Network"
+                className="w-full h-40 object-contain rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>Nationwide Network</CardTitle>
               </CardHeader>
@@ -86,6 +118,11 @@ export default function LandingPage() {
             </Card>
 
             <Card className="text-center">
+              <img
+                src="../public/member.svg"
+                alt="Membership structure"
+                className="w-full h-40 object-contain rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>Clear Membership Structure</CardTitle>
               </CardHeader>
@@ -115,6 +152,11 @@ export default function LandingPage() {
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="text-center">
+              <img
+                src="../public/individual.svg"
+                alt="Individual member"
+                className="w-full h-40 object-contain rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>Individual Members</CardTitle>
               </CardHeader>
@@ -129,6 +171,11 @@ export default function LandingPage() {
             </Card>
 
             <Card className="text-center">
+              <img
+                src="../public/company.svg"
+                alt="Sacco membership"
+                className="w-full h-40 object-contain rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>Saccos & Companies</CardTitle>
               </CardHeader>
